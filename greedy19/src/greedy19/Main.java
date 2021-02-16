@@ -27,7 +27,7 @@ class Main {
 	}
 	
 	public static void go(int s, int e) {
-		System.out.println(s + " " + e);
+		//System.out.println(s + " " + e);
 		if(answer)
 			return;
 		if(Math.abs(s - e) + 1 == S.length()) {
