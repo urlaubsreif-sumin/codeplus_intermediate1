@@ -73,11 +73,13 @@ public class Main {
 		while(i < left.size() && j < right.size()) {
 			Coord l = left.get(i);
 			Coord r = right.get(j);
+			//왼쪽 x좌표가 오른쪽 x좌표보다 작은 경우는 그냥 추가하면 된다.
 			if(l.x < r.x) {
 				lh = l.height;
 				res.add(new Coord(l.x, Math.max(lh, rh)));
 				i++;
 			}
+			//왼쪽 x좌표가 오른쪽 x좌표보다 큰 경우는 높이 값에 주의한다.
 			else if(l.x >= r.x) {
 				rh = r.height;
 				res.add(new Coord(r.x, Math.max(lh, rh)));
@@ -125,9 +127,11 @@ class Result {
 			arr.add(c);
 			return;
 		}
+		//높이에 변화가 없음
 		if(arr.get(arr.size() - 1).height == c.height) {
 			return;
 		}
+		//기존 정답의 가장 오른쪽 x좌표와 동일한 경우, 지우고 새로운 것으로 바꾼다.
 		if(arr.get(arr.size() - 1).x == c.x) {
 			arr.remove(arr.size() - 1);
 			arr.add(new Coord(c.x, c.height));
